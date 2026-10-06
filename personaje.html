@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Personaje</title>
+  <style>
+    :root {
+      --bg: #120f13;
+      --panel: #1d1a1f;
+      --gold: #ffd700;
+      --gold-strong: #e6c200;
+      --text: #f5f5f5;
+      --muted: #d4d4d4;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: radial-gradient(circle at top, #241d27 0%, var(--bg) 40%);
+      color: var(--text);
+      font-family: Arial, sans-serif;
+      display: grid;
+      place-items: center;
+      padding: 24px;
+    }
+
+    .detail-shell {
+      width: min(980px, 100%);
+      background: rgba(29, 26, 31, 0.9);
+      border: 2px solid rgba(255, 215, 0, 0.35);
+      border-radius: 18px;
+      padding: 28px;
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.35);
+    }
+
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+      gap: 16px;
+    }
+
+    .back-link {
+      display: inline-block;
+      background: var(--gold);
+      color: #111;
+      text-decoration: none;
+      padding: 10px 18px;
+      border-radius: 8px;
+      font-weight: 700;
+    }
+
+    .content {
+      display: grid;
+      grid-template-columns: minmax(260px, 420px) minmax(0, 1fr);
+      gap: 26px;
+      align-items: center;
+    }
+
+    .image-wrap {
+      padding: 10px;
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    #detail-image {
+      display: block;
+      width: 100%;
+      max-height: 560px;
+      object-fit: contain;
+      border-radius: 12px;
+      cursor: zoom-in;
+      background: #0d0d0d;
+    }
+
+    h1 {
+      margin: 0 0 16px;
+      font-size: clamp(2rem, 3vw, 3rem);
+      color: var(--gold);
+    }
+
+    #detail-meta {
+      margin: 0 0 22px;
+      color: var(--muted);
+      font-size: 1.1rem;
+      line-height: 1.7;
+    }
+
+    .zoom-button {
+      border: none;
+      background: var(--gold);
+      color: #111;
+      padding: 12px 20px;
+      border-radius: 8px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .zoom-button:hover {
+      background: var(--gold-strong);
+    }
+
+    .modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.88);
+      display: none;
+      place-items: center;
+      padding: 20px;
+      z-index: 10;
+    }
+
+    .modal.show {
+      display: grid;
+    }
+
+    .modal-content {
+      position: relative;
+      max-width: min(90vw, 1000px);
+      width: 100%;
+      display: grid;
+      place-items: center;
+    }
+
+    #modal-image {
+      max-width: 100%;
+      max-height: 85vh;
+      object-fit: contain;
+      border-radius: 12px;
+      border: 4px solid rgba(255, 215, 0, 0.6);
+    }
+
+    #close-modal {
+      position: absolute;
+      top: -18px;
+      right: -18px;
+      border: none;
+      background: var(--gold);
+      color: #111;
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      font-size: 1.5rem;
+      cursor: pointer;
+      font-weight: 700;
+    }
+
+    @media (max-width: 760px) {
+      .content {
+        grid-template-columns: 1fr;
+      }
+
+      .topbar {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="detail-shell">
+    <div class="topbar">
+      <a class="back-link" href="galeria.html">← Volver a la galería</a>
+    </div>
+
+    <div class="content">
+      <div class="image-wrap">
+        <img id="detail-image" src="" alt="Personaje" />
+      </div>
+
+      <div>
+        <h1 id="detail-title">Cargando...</h1>
+        <p id="detail-meta"></p>
+        <button id="zoom-button" class="zoom-button" type="button">Ampliar imagen</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal" id="detail-modal" aria-hidden="true">
+    <div class="modal-content">
+      <button id="close-modal" type="button" aria-label="Cerrar">×</button>
+      <img id="modal-image" src="" alt="Vista ampliada" />
+    </div>
+  </div>
+
+  <script src="characters.js"></script>
+  <script src="gallery.js"></script>
+</body>
+</html>

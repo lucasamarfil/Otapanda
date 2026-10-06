@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Galería de Personajes</title>
+  <link rel="icon" href="Logo.png" type="image/png">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #1a1a1a;
+      color: #ffd700; 
+      font-family: Arial, sans-serif;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+
+    .circular-img {
+  width: 350px;           
+  height: 350px;          
+  border-radius: 50%;     
+  object-fit: cover;      
+  border: 3px solid #ffd700; 
+  margin-bottom: 20px;
+    }
+
+    h1 {
+      font-size: 3em;
+      margin-bottom: 20px;
+    }
+
+    p {
+      font-size: 1.2em;
+      max-width: 600px;
+      margin-bottom: 60px;
+      padding: 0 20px;
+    }
+
+    button {
+      padding: 15px 30px;
+      font-size: 1.2em;
+      background-color: #ffd700;
+      color: #000000; 
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    button:hover {
+      background-color: #e6c200; 
+    }
+
+    .bottom-button {
+      position: absolute;
+      bottom: 50px;
+    }
+
+    @media (max-width: 768px) {
+  h1 {
+    font-size: 2.3em;
+    margin-bottom: 15px;
+  }
+
+  .circular-img {
+    width: 120px;
+    height: 120px;
+  }
+
+  p {
+    font-size: 1.1em;
+    margin-bottom: 40px;
+    max-width: 80%;
+  }
+
+  button {
+    padding: 12px 26px;
+    font-size: 1.1em;
+  }
+
+  .bottom-button {
+    bottom: 35px;
+  }
+}
+
+
+@media (max-width: 480px) {
+  body {
+    padding: 20px 10px;
+  }
+
+  h1 {
+    font-size: 1.8em;
+    margin-bottom: 12px;
+  }
+
+  p {
+    font-size: 0.95em;
+    margin-bottom: 30px;
+    max-width: 100%;
+    line-height: 1.4;
+  }
+
+
+  button {
+    padding: 10px 20px;
+    font-size: 1em;
+    width: 80%; 
+    max-width: 280px;
+  }
+
+  .bottom-button {
+    position: relative; 
+    bottom: auto;
+    margin-top: 20px;
+  }
+}
+  </style>
+</head>
+<body>
+
+  <img src="otapanda.png" alt="Foto" class="circular-img">
+
+  <h1>Personajes favoritos de Lucas Amarfil</h1>
+
+  <p>
+    Bienvenido a una galería dedicada a los personajes favoritos de Lucas. Aquí podrás ver ilustraciones hechas por mi.
+  </p>
+
+  <button onclick="location.href='galeria.html'">Ver</button>
+
+</body>
+</html>
